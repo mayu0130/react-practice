@@ -1,0 +1,46 @@
+{
+	"name": "react-practice",
+	"version": "1.0.0",
+	"description": "Reactの練習",
+	"main": "js/index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint js",
+		"lint:fix": "eslint js --fix",
+		"format": "prettier . --white",
+		"format:check": "prettier . --check",
+		"build": "webpack --mode production",
+		"build:dev": "webpack",
+		"dev": "webpack serve --mode development"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mayu0130/js-practice.git"
+	},
+	"author": "mayu0130",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/mayu0130/js-practice/issues"
+	},
+	"homepage": "https://github.com/mayu0130/js-practice#readme",
+	"devDependencies": {
+		"@eslint/js": "9.23.0",
+		"@types/react": "19.1.0",
+		"@types/react-dom": "19.1.1",
+		"css-loader": "7.1.2",
+		"eslint": "9.23.0",
+		"html-webpack-plugin": "5.6.3",
+		"prettier": "3.5.3",
+		"style-loader": "4.0.0",
+		"ts-loader": "9.5.2",
+		"typescript": "5.8.2",
+		"webpack": "5.98.0",
+		"webpack-cli": "6.0.1",
+		"webpack-dev-server": "5.2.1"
+	},
+	"dependencies": {
+		"mini-css-extract-plugin": "2.9.2",
+		"react": "19.1.0",
+		"react-dom": "19.1.0"
+	}
+}

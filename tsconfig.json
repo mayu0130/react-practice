@@ -1,0 +1,13 @@
+{
+  "compilerOptions":{
+    "jsx":"react",
+    //ソースマップを有効化
+    "sourceMap": true,
+    //TSはECMAScript5に変換
+    "target": "ES5",
+    //TSのモジュールはES Moudlesとして出力
+    "module": "ES2015",
+    //厳密モードとして設定
+    "strict": true
+  }
+}
