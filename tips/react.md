@@ -37,4 +37,152 @@ Reactには仮想DOMという仕組みがある。
 
 データの状態とDOM構造が紐づけられ、データを更新したらDOMも自動的に更新され、従来の「データを更新＆DOM操作」の実装が「データ更新」だけに集中でき、開発体験が向上する。
 
+## JSXとは
 
+JSX（JavaScript XML）は、Reactで使われる特別な構文。
+JSXを使うことで、HTMLのような構文をJavaScriptコードの中に書き込むことができ、UIの作成が直感的で分かりやすくなる。
+
+## JSXの基本構文
+
+**要素**
+JSXでは、HTMLのタグと同じように要素を記述する。
+例えば、<div>,<h1>,<p>などのタグを使用します。
+これによりUIの構造を視覚的に理解しやすくなる。
+
+```
+const element = <h1>Hello, world!</h1>;
+```
+
+**属性**
+HTMLと同様に、JSXでも要素に属性を追加できる。
+ただし、属性名はキャメルケース(camelCase)で記述する必要がある。
+例えばclassはclassNameに、onclickはonClickになる。
+
+```
+const element = <img src="logo.png" alt="Logo" />;
+```
+
+**子要素**
+```
+const element = {
+  <div>
+    <h1>Hello world</h1>
+    <p>Reactの勉強をしています</p>
+  </div>
+};
+```
+
+**動的なデータの表示**
+```
+const todoItem = "掃除と洗濯";
+const element = <h1>Task:{todoItem}</h1>
+```
+//Task:掃除と洗濯
+
+**イベントハンドリング**
+```
+const handleClick = () => {
+  alert('ボタンがクリックされました')
+};
+const element = <button onClick={handleClick}>完了</button>;
+```
+
+**JSXで書いたコードをビルドした後はどうなる**
+<ビルド前>
+const todoItem = "Learn React";
+const element = <h1>Task: {todoItem}</h1>;
+
+<ビルド後>
+"use strict";
+var todoItem = "Learn React";
+var element = React.createElement("h1", null, "Task:" + todoItem);
+
+## コンポーネントとは
+
+コンポーネントは、Reactの基本単位であり、再利用可能なUIの部品。
+コンポーネントを使うことで、アプリケーションのUIを小さな独立した再利用可能な部分に分割できる。これにより、コードの管理とメンテナンスが容易になる。
+
+Reactには主に関数コンポーネントとクラスコンポーネントの2種類のコンポーネントがある。
+
+現在では、関数コンポーネントが主流となっており、特にTypeScriptとの相性が良い。
+
+## Props
+
+Propsは、コンポーネントにデータを渡すための仕組み。
+
+親コンポーネントから子コンポーネントへデータを渡す際に使用します。
+Propsは読み取り専用であり、子コンポーネントで使用することはできません。
+```
+type TodoItemProps = {
+  task: string;
+  deadline: string;
+};
+
+const TodoItem: ({task, deadline}: TodoItemProps)= => {
+  return(
+    <div>
+      <h2>{task}</h2>
+      <p>締め切り：{deadline}</p>
+    </div>
+  );
+};
+
+root.render(<TodoItem task="掃除" deadline="明日まで" />);
+
+//掃除
+// 締め切り：明日まで
+```
+
+## ネストしたコンポーネント
+
+コンポーネントをネストすることで、複雑なUIを簡単に構築できる。
+親コンポーネントだ子コンポーネントにデータを渡し、UIを構築する。
+```
+type TodoItemProps = {
+  task: string;
+  deadline: string;
+};
+
+const TodoItem: ({task, deadline}: TodoItemProps)= => {
+  return(
+    <div>
+      <h2>{task}</h2>
+      <p>締め切り：{deadline}</p>
+    </div>
+  );
+};
+
+const TodoList:React.FC = () => {
+  const todos = [
+    {task: '掃除', deadline: '明日まで' };
+    {task: '洗濯', deadline: '明後日まで' };
+  ];
+
+  return{
+    <div>
+    {todos.map((todo, index) => {
+      <TodoItem key={index} task={todo.task} deadline={todo.deadline} />
+    })}
+    </div>
+  };
+};
+
+root.render(<TodoList />);
+
+//掃除
+//締め切り：明日まで
+//洗濯
+//締め切り：明後日まで
+```
+
+コンポーネントをリストで表示する場合、キーが重要
+
+1.パフォーマンスの向上
+キーを使用することで、Reactはリスト内の各要素を効率的に更新できる。キーがあるとReactは要素の位置や内容が変更されたかどうかを迅速に判断でき不要な再レンダリングを避け、パフォーマンスが向上する。
+
+2.バグの防止
+キーがない場合、リストの要素が動的に変更された時に、Reactは正しく更新できないことがある。
+例えば、リストの要素が削除されたり追加されたりする場合、キーがないとReactはどの要素が削除されたかを誤って判断することがある。キーを適切に設定することで、このようなバグを防ぐことができる。
+
+通常、配列のidプロパティやインデックスをキーとして使用しますが、インデックスは動的なリストには推奨されない。
+ユニークなIDを使用した方が良い。
