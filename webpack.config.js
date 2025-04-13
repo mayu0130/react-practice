@@ -19,7 +19,7 @@ module.exports = {
         //拡張子cssファイル（正規表現）
         test: /\.css$/,
         //use配列のローダーは配列の最後尾から順に適用される。よってcss-loader → style-loaderの順となる。
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
         //拡張子tsファイル（正規表現）
