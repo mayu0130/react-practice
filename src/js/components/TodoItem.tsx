@@ -2,13 +2,16 @@ import * as React from "react";
 
 type TodoItemProps = {
   task: string;
+  person: string;
   deadline: string;
 };
 
-export const TodoItem: React.FC<TodoItemProps> =({ task, deadline }) => {
+export const TodoItem: React.FC<TodoItemProps> =({ task, person, deadline }) => {
   return(
-    <li>
-      <p>{task} 締め切り：{deadline}</p>
+    <li className="grid grid-cols-3">
+      <div>{task}</div>
+      <div>{person}</div>
+      <div>{deadline}</div>
     </li>
   );
 };
