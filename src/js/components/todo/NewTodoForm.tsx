@@ -2,6 +2,7 @@ import * as React from "react";
 import { TextField } from "../parts/TextField";
 import { useState } from "react";
 import { Todo } from "../../App";
+import { Button } from "../parts/button";
 
 type Props = {
   setTodoList: React.Dispatch<React.SetStateAction<Todo[]>>;
@@ -24,7 +25,7 @@ export const NewTodoForm = ({ setTodoList }: Props) => {
       <TextField id="new-task" label="タスク名" value={newTask} onChange={setNewTask} type="text"/>
       <TextField id="new-person" label="担当者名" value={newPerson} onChange={setNewPerson} type="text"/>
       <TextField id="new-deadline" label="締め切り" value={newDeadline} onChange={setNewDeadline} type="date"/>
-      <button className="border rounded bg-cyan-400 w-16" onClick={addNewTodo}>追加</button>
+      <Button onClick={addNewTodo} color="blue">追加</Button>
     </div>
   );
 };
