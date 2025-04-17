@@ -1,13 +1,13 @@
 import * as React from "react";
 import { TodoItem } from "./TodoItem";
-import { Todo } from "../../App";
+import { Todo } from "./type";
 
 type Props = {
   todoList: Todo[];
-  setTodoList: React.Dispatch<React.SetStateAction<Todo[]>>;
+  deleteTodo: (id: number) => void;
 };
 
-export const TodoList = ({ todoList, setTodoList }:Props) => {
+export const TodoList = ({ todoList, deleteTodo }:Props) => {
   return (
     <ul className="bg-emerald-100 p-4 rounded">
       <li className="grid grid-cols-4 font-bold">
@@ -17,7 +17,7 @@ export const TodoList = ({ todoList, setTodoList }:Props) => {
         <div>削除</div>
       </li>
       {todoList.map((todo) => (
-        <TodoItem key={todo.id} id={todo.id} task={todo.task} person={todo.person} deadline={todo.deadline} setTodoList={setTodoList} />
+        <TodoItem key={todo.id} id={todo.id} task={todo.task} person={todo.person} deadline={todo.deadline} deleteTodo={deleteTodo}/>
       ))}
     </ul>
   );
