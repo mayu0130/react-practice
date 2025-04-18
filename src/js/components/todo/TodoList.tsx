@@ -1,6 +1,8 @@
 import * as React from "react";
 import { TodoItem } from "./TodoItem";
 import { Todo } from "./type";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 type Props = {
   todoList: Todo[];
@@ -8,6 +10,7 @@ type Props = {
 };
 
 export const TodoList = ({ todoList, deleteTodo }:Props) => {
+
   return (
     <ul className="bg-emerald-100 p-4 rounded">
       <li className="grid grid-cols-4 font-bold">
@@ -17,7 +20,7 @@ export const TodoList = ({ todoList, deleteTodo }:Props) => {
         <div>削除</div>
       </li>
       {todoList.map((todo) => (
-        <TodoItem key={todo.id} id={todo.id} task={todo.task} person={todo.person} deadline={todo.deadline} deleteTodo={deleteTodo}/>
+        <TodoItem key={todo.id} id={todo.id} task={todo.task} person={todo.person} deadline={todo.deadline} deleteTodo={deleteTodo} />
       ))}
     </ul>
   );
