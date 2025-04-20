@@ -9,6 +9,7 @@ type Props = {
 }
 
 export const TextField = ({ id, label, value, onChange, type }: Props) => {
+  console.log("TextFieldコンポーネントのレンダー")
   return (
     <div className="flex gap-1 items-center">
       <label htmlFor={id}>{label}</label>
