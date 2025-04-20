@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/use-auth";
 export const Login = () => {
 
 const {login, userName, setUserName} = useAuth();
+console.log("Loginコンポーネントのレンダー")
 
 return(
   <main className="my-0 mx-auto w-4/5 text-center">

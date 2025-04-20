@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Button } from "../parts/button";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import { memo } from "react";
 import { useAuth } from "../../contexts/use-auth";
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
   deadline: string;
   deleteTodo: (id: number) => void;
 };
-export const TodoItem =({
+export const TodoItem = memo(({
   id,
   task,
   person,
@@ -20,6 +19,8 @@ export const TodoItem =({
 }: Props) => {
 
   const { userName } = useAuth();
+  console.log("TodoItemコンポーネントのレンダー")
+
   const style = userName === person ? "text-red-600 font-bold" : "";
   return(
     <>
@@ -35,4 +36,4 @@ export const TodoItem =({
       </li>
     </>
   );
-};
+});

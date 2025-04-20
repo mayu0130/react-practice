@@ -6,6 +6,7 @@ type props = {
 };
 
  export const Heading = ({ level, children }: PropsWithChildren<props>) => {
+  console.log("Headingコンポーネントのレンダー");
   if((level === "h1"))
     return <h1 className="text-5xl font-bold">{ children }</h1>;
   if((level === "h2"))
