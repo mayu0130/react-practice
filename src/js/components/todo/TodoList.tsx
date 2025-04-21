@@ -1,8 +1,7 @@
 import * as React from "react";
 import { TodoItem } from "./TodoItem";
 import { Todo } from "./type";
-import { memo, useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import { memo } from "react";
 
 type Props = {
   todoList: Todo[];

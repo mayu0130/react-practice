@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button } from "../parts/button";
+import { Button, Td, Tr } from "@chakra-ui/react";
 import { memo } from "react";
 import { useAuth } from "../../contexts/use-auth";
 
@@ -19,21 +19,15 @@ export const TodoItem = memo(({
 }: Props) => {
 
   const { userName } = useAuth();
-  console.log("TodoItemコンポーネントのレンダー")
 
-  const style = userName === person ? "text-red-600 font-bold" : "";
   return(
-    <>
-      <li className="grid grid-cols-4">
-        <div>{task}</div>
-        <div className={style}>{person}</div>
-        <div>{deadline}</div>
-        <div>
-          <Button onClick={() => deleteTodo(id)} color="red">
-            削除
-          </Button>
-        </div>
-      </li>
-    </>
+    <Tr color={userName === person ? "red" : ""}>
+      <Td>{task}</Td>
+      <Td>{person}</Td>
+      <Td>{deadline}</Td>
+      <Td><Button onClick={() => deleteTodo(id)} colorScheme="red" size="xs">
+        削除
+      </Button></Td>
+    </Tr>
   );
 });

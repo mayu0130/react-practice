@@ -1,7 +1,6 @@
 import * as React from "react";
-import { TextField } from "../parts/TextField";
 import { useState } from "react";
-import { Button } from "../parts/button";
+import { Box, Button, HStack, Input } from "@chakra-ui/react";
 
 type Props = {
   addTodo: (newTask: string, newPerson: string, newDeadline: string) => void;
@@ -21,11 +20,13 @@ export const NewTodoForm = ({ addTodo }: Props) => {
   };
 
   return (
-    <div className="flex gap-2">
-      <TextField id="new-task" label="タスク名" value={newTask} onChange={setNewTask} type="text"/>
-      <TextField id="new-person" label="担当者名" value={newPerson} onChange={setNewPerson} type="text"/>
-      <TextField id="new-deadline" label="締め切り" value={newDeadline} onChange={setNewDeadline} type="date"/>
-      <Button onClick={addNewTodo} color="blue">追加</Button>
-    </div>
+    <HStack spacing="4">
+      <Input placeholder='タスク名' value={newTask} onChange={(e) => setNewTask(e.target.value)} />
+      <Input placeholder='担当者名'  value={newPerson} onChange={(e) => setNewPerson(e.target.value)} />
+      <Input placeholder='締め切り' type='date' value={newDeadline} onChange={(e) => setNewDeadline(e.target.value)}/>
+      <Box w="4px">
+        <Button onClick={addNewTodo} colorScheme="blue">追加</Button>
+      </Box>
+    </HStack>
   );
 };

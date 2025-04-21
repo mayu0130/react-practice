@@ -1,8 +1,6 @@
 import * as React from "react";
-import { Heading } from "../components/parts/Heading";
-import { TextField } from "../components/parts/TextField";
-import { Button } from "../components/parts/button";
 import { useAuth } from "../contexts/use-auth";
+import { Box, Button, Heading, HStack, Input } from "@chakra-ui/react";
 
 export const Login = () => {
 
@@ -10,17 +8,18 @@ const {login, userName, setUserName} = useAuth();
 console.log("Loginコンポーネントのレンダー")
 
 return(
-  <main className="my-0 mx-auto w-4/5 text-center">
-    <Heading level="h1">ログイン</Heading>
-    <div className="flex gap-1">
-      <TextField
+  <Box as="main" w="400px" mx="auto" mt="10">
+    <Heading mt="4" as="h1" size="xl">ログイン</Heading>
+    <HStack spacing={4} mt={10}>
+      <Input
         id="new-task"
-        label="ユーザ名"
+        placeholder="ユーザ名"
         value={userName}
-        onChange={setUserName} type={"text"}
+        onChange={(e) => setUserName(e.target.value)}
+        w={80}
       />
-      <Button onClick={login} color="blue">ログイン</Button>
-    </div>
-  </main>
+      <Button colorScheme='blue' size="sm" onClick={login}>ログイン</Button>
+    </HStack>
+  </Box>
   );
 };

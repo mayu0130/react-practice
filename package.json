@@ -43,6 +43,11 @@
 		"webpack-dev-server": "5.2.1"
 	},
 	"dependencies": {
+		"@chakra-ui/icons": "2.2.4",
+		"@chakra-ui/react": "^2.8.0",
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.0",
+		"framer-motion": "^12.7.4",
 		"mini-css-extract-plugin": "2.9.2",
 		"react": "19.1.0",
 		"react-dom": "19.1.0"
