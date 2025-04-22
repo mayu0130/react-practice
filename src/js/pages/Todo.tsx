@@ -5,13 +5,23 @@ import { useTodoList } from "../components/todo/use-todo-list";
 import { useAuth } from "../contexts/use-auth";
 import { Avatar, Box, Button, Heading, HStack, Input } from "@chakra-ui/react";
 import { TodoTable } from "../components/todo/TodoTable";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Todo = () => {
 
   const { todoList, addTodo, deleteTodo, filterWord, setFilterWord } = useTodoList();
   // const { time } = useTimer();
-  const { logout, userName } = useAuth();
+  const { isLoggedIn, logout, userName } = useAuth();
   console.log("Todoコンポーネントのレンダー")
+  const navigate = useNavigate();
+
+  // ログアウト中にアクセスされたら、/loginに遷移させる
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn]);
 
   return(
     <Box as="main" w="720px" mx="auto" mt="10">

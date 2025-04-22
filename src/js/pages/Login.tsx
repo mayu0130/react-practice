@@ -1,11 +1,22 @@
 import * as React from "react";
 import { useAuth } from "../contexts/use-auth";
 import { Box, Button, Heading, HStack, Input } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Login = () => {
+  const { isLoggedIn, login, userName, setUserName } = useAuth();
+  const navigate = useNavigate();
 
-const {login, userName, setUserName} = useAuth();
-console.log("Loginコンポーネントのレンダー")
+  console.log("Loginコンポーネントのレンダー");
+
+  //ログイン中だった場合は,/todoに遷移させる
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/todo");
+    }
+  }, [isLoggedIn]);
 
 return(
   <Box as="main" w="400px" mx="auto" mt="10">
