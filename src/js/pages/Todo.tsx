@@ -7,36 +7,16 @@ import { Avatar, Box, Button, Heading, HStack, Input } from "@chakra-ui/react";
 import { TodoTable } from "../components/todo/TodoTable";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { Layout } from "../components/layout/layout";
 
 export const Todo = () => {
 
   const { todoList, addTodo, deleteTodo, filterWord, setFilterWord } = useTodoList();
   // const { time } = useTimer();
-  const { isLoggedIn, logout, userName } = useAuth();
   console.log("Todoコンポーネントのレンダー")
-  const navigate = useNavigate();
-
-  // ログアウト中にアクセスされたら、/loginに遷移させる
-  useEffect(() => {
-    if (!isLoggedIn) {
-      navigate("/login");
-    }
-  }, [isLoggedIn]);
 
   return(
-    <Box as="main" w="720px" mx="auto" mt="10">
-      <HStack justify="space-between">
-        <Heading as="h1" size="2xl">TODO</Heading>
-        <HStack as="header" spacing='4' justify="end">
-        <HStack spacing='2'>
-          <Box><Avatar bg='teal.500' size="sm"/></Box>
-          <Box>{userName}さん</Box>
-        </HStack>
-        <Box>
-          <Button onClick={logout} colorScheme="red" size="sm">ログアウト</Button>
-        </Box>
-        </HStack>
-      </HStack>
+    <Layout title="TODO">
       {/* <div>タイマー： {time}</div> */}
       <Box mt="20" as="section">
         <Heading as="h2" size="xl">新規TODO作成</Heading>
@@ -53,6 +33,6 @@ export const Todo = () => {
           <TodoTable todoList={todoList} deleteTodo={deleteTodo}/>
         </Box>
       </Box>
-    </Box>
-    );
+      </Layout>
+  );
 };
