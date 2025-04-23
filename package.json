@@ -51,6 +51,7 @@
 		"mini-css-extract-plugin": "2.9.2",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"react-router-dom": "^6.26.1"
+		"react-router-dom": "^6.26.1",
+		"zustand": "^4.5.5"
 	}
 }
