@@ -3,6 +3,7 @@ import { Button, Td, Tr } from "@chakra-ui/react";
 import { memo } from "react";
 import { useAuth } from "../../contexts/use-auth";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../../stores/use-auth-store";
 
 type Props = {
   id: string;
@@ -19,7 +20,7 @@ export const TodoItem = memo(({
   deleteTodo,
 }: Props) => {
 
-  const { userName } = useAuth();
+  const { userName } = useAuthStore();
 
   return(
     <Tr color={userName === person ? "red" : ""}>
