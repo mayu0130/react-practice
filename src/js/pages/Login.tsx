@@ -5,18 +5,19 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export const Login = () => {
-  const { isLoggedIn, login, userName, setUserName } = useAuth();
+  const { isLoggedIn, isLoginCheckDone, login, userName, setUserName } = useAuth();
   const navigate = useNavigate();
 
   console.log("Loginコンポーネントのレンダー");
 
   //ログイン中だった場合は,/todoに遷移させる
-
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoginCheckDone && isLoggedIn) {
       navigate("/todo");
     }
-  }, [isLoggedIn]);
+  }, [isLoginCheckDone, isLoggedIn]);
+
+  if (!isLoginCheckDone || isLoggedIn) return null;
 
 return(
   <Box as="main" w="400px" mx="auto" mt="10">
