@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Button, Td, Tr } from "@chakra-ui/react";
 import { memo } from "react";
-import { useAuth } from "../../contexts/use-auth";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../../stores/use-auth-store";
 

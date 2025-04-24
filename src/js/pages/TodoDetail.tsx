@@ -1,8 +1,7 @@
 import React from "react";
-import { Avatar, Box, Button, Heading, HStack, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useTodoList } from "../components/todo/use-todo-list";
-import { useAuth } from "../contexts/use-auth";
 import { Layout } from "../components/layout/layout";
 import { NotFound } from "./NotFound";
 
