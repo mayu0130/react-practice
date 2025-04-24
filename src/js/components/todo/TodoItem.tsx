@@ -22,7 +22,7 @@ export const TodoItem = memo(({
   const { userName } = useAuthStore();
 
   return(
-    <Tr color={userName === person ? "red" : ""}>
+    <Tr data-testid="row" color={userName === person ? "red" : ""}>
       <Td>
         <Link to={`/todo/${id}`}>{id}</Link>
       </Td>
