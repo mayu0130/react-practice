@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
+import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import { Todo } from "./type";
 import { TodoItem } from "./TodoItem";
 

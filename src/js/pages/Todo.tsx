@@ -1,12 +1,8 @@
 import * as React from "react";
 import { NewTodoForm } from "../components/todo/NewTodoForm";
-import { TodoList } from "../components/todo/TodoList";
 import { useTodoList } from "../components/todo/use-todo-list";
-import { useAuth } from "../contexts/use-auth";
-import { Avatar, Box, Button, Heading, HStack, Input } from "@chakra-ui/react";
+import { Box, Heading, Input } from "@chakra-ui/react";
 import { TodoTable } from "../components/todo/TodoTable";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { Layout } from "../components/layout/layout";
 
 export const Todo = () => {

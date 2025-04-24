@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useAuthStore } from "../stores/use-auth-store";
 
 const USER_NAME_KEY = "user-name";
 
 export const useAuth = () => {
-  const {isLoggedIn, setIsLoggedIn, isLoginCheckDone, setIsLoginCheckDone, userName, setUserName, login, logout} = useAuthStore();
+  const {isLoggedIn, isLoginCheckDone, setIsLoginCheckDone, userName, setUserName, login, logout} = useAuthStore();
 
   // マウント時にlocalStorageからユーザ名を取得する
   // ユーザー名が取得できた場合はログイン中として扱う
