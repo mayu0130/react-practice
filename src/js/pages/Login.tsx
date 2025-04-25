@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useAuth } from "../contexts/use-auth";
+import { useAuth } from "../hooks/use-auth";
 import { Box, Button, Heading, HStack, Input } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";

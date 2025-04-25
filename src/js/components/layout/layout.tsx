@@ -1,15 +1,15 @@
 import { HStack, Heading, Avatar, Button } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react/box";
 import React, { PropsWithChildren, useEffect } from "react";
-import { useAuth } from "../../contexts/use-auth";
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../stores/use-auth-store";
 
 type Props = {
   title: string;
 };
 
 export const Layout = ({ title, children }: PropsWithChildren<Props>) => {
-  const { isLoggedIn, isLoginCheckDone, logout, userName } = useAuth();
+  const { isLoggedIn, isLoginCheckDone, logout, userName } = useAuthStore();
   const navigate = useNavigate();
 
   // ログアウト中にアクセスされたら、/loginに遷移させる
@@ -28,7 +28,7 @@ export const Layout = ({ title, children }: PropsWithChildren<Props>) => {
         <HStack as="header" spacing="4" justify="end">
           <HStack spacing="2">
             <Box><Avatar bg="teal.500" size="sm" /></Box>
-            <Box>{userName}さん</Box>
+            <Box>{userName}</Box>
           </HStack>
           <Box>
             <Button onClick={logout} colorScheme="red" size="sm">ログアウト</Button>
