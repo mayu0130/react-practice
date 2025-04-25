@@ -1,7 +1,8 @@
 import React, { memo } from "react";
 import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
-import { Todo } from "./type";
+import { Todo } from "../../types/type";
 import { TodoItem } from "./TodoItem";
+
 
 type Props = {
   todoList: Todo[];

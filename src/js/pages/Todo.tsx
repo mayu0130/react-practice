@@ -1,9 +1,9 @@
 import * as React from "react";
-import { NewTodoForm } from "../components/todo/NewTodoForm";
-import { useTodoList } from "../components/todo/use-todo-list";
+import { useTodoList } from "../hooks/use-todo-list";
 import { Box, Heading, Input } from "@chakra-ui/react";
 import { TodoTable } from "../components/todo/TodoTable";
 import { Layout } from "../components/layout/layout";
+import { NewTodoForm } from "../components/todo/NewTodoForm";
 
 export const Todo = () => {
 
