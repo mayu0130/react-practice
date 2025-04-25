@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { useTodoList } from "../hooks/use-todo-list";
-import { Layout } from "../components/layout/layout";
+import { Layout } from "../components/layout";
 import { NotFound } from "./NotFound";
+import { useTodoList } from "../hooks/use-todo-list";
 
 export const TodoDetail = () => {
 

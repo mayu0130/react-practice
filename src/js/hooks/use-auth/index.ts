@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAuthStore } from "../stores/use-auth-store";
+import { useAuthStore } from "../../stores/use-auth-store";
 
 const USER_NAME_KEY = "user-name";
 

@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
-import { NewTodoForm } from "./NewTodoForm";
 import React from "react";
 import { screen } from "@testing-library/react";
+import { NewTodoForm } from ".";
 
 describe("NewTodoFormコンポーネントのテスト", () => {
   test("コンポーネントが正しくレンダリングされること", () => {
