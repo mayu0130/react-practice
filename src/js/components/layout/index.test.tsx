@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Layout } from "./layout";
+import { Layout } from ".";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { fireEvent, screen } from "@testing-library/dom"

@@ -1,8 +1,8 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { TodoTable } from "./TodoTable";
 import { screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import { TodoTable } from ".";
 
 describe("TodoTableコンポーネントのテスト", () => {
   test("コンポーネントが正しくレンダリングされること", () => {

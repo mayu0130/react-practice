@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
-import { useTodoList } from "./use-todo-list";
-import { Todo } from "../types/type";
+import { useTodoList } from ".";
+import { Todo } from "../../types/type";
 
 describe("useTodoListフックのテスト",() => {
 
